@@ -63,22 +63,6 @@ void led_off()
   led_set(0, 0, 0);
 }
 
-void dump_byte_array(byte *buffer, byte bufferSize)
-{
-  for (byte i = 0; i < bufferSize; i++) {
-    Serial.print(buffer[i] < 0x10 ? " 0" : " ");
-    Serial.print(buffer[i], HEX);
-  }
-  Serial.println();
-  for (byte j = 0; j < bufferSize; j++) {
-    // String(13, HEX);
-    //Serial.print(buffer[j]);
-    Serial.print(String(buffer[j], HEX));
-    Serial.print(",");
-  }
-  Serial.println();
-}
-
 String get_uid(byte *buffer, byte bufferSize)
 {
   String uid = "";
@@ -130,4 +114,3 @@ void loop()
   mfrc522.PICC_HaltA();
   mfrc522.PCD_StopCrypto1();
 }
-
